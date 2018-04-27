@@ -1,0 +1,130 @@
+.main-sidebar .el-submenu__title,
+.el-menu li {
+  font-size: 12px;
+  color: #16a085;
+}
+
+.el-menu-style .el-menu-item:hover,
+.el-menu-style .el-submenu__title:hover {
+  background-color: #f0f7ff !important;
+}
+
+.el-menu-style .el-menu-item:hover {
+  background-color: #f0f7ff !important;
+}
+
+.el-menu-style .is-active {
+  background-color: #2c3e50 !important;
+}
+
+.content-view .el-button {
+  display: inline-block;
+  padding: 9px 20px;
+}
+
+.content-view .el-input {
+  width: 230px;
+}
+.table .el-input{
+  width:120px;
+}
+.content-view .el-input__inner {
+  height: 30px;
+}
+.content-view .el-checkbox+.el-checkbox{
+  margin-left: 0;
+  margin-right: 30px;
+}
+.content-view .el-checkbox:last-child{
+  margin-right: 0;
+}
+.content-view .el-checkbox:first-child {
+  margin-right: 30px;
+}
+
+.panpel-body .el-tree {
+  font-size: 12px;
+}
+
+.main-sidebar .el-menu-style,
+.el-menu-style .el-menu {
+  background-color: #2c3e50;
+  color: #fff;
+}
+
+.content .el-menu {
+  border-right: 0 solid #ccc;
+}
+.el-tree{
+  border:1px solid #ccc;
+}
+
+/* service */
+.service .el-tree {
+  border:none;
+}
+.service .el-tree-node__content{
+  padding:10px 0;
+}
+.service .el-tree-node__content>.el-tree-node__expand-icon{
+  padding:0;
+  font-size:14px;
+  font-weight: 900;
+}
+.service .service-item .el-input {
+  width:72px;
+}
+.service .service-item .el-input__inner{
+  padding:0 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.service .service-item .el-button{
+  padding:3px 2px;
+  font-size:12px;
+}
+.service .el-input-number .el-input{
+  width:130px;
+}
+
+/* login */
+.login-wrapper .el-button{
+  width:100%;
+}
+
+/* companyinfo */
+.user .body-content .el-input{
+  width:100%;
+}
+.user .body-content .el-input__inner{
+  width:100%;
+  height:40px;
+}
+.user .body-content .el-button{
+  width:100%;
+  padding:20px 20px;
+}
+/*
+    order.vue 样式
+    by leecu
+*/
+.service-item .right .el-input{
+    width: auto !important;
+}
+.addOrder .el-menu--horizontal>.el-menu-item {
+  height:40px;
+  line-height: 40px;
+  padding:0 13px;
+}
+
+/*
+    log.vue 样式
+    by wjn
+*/
+
+.log .el-date-editor--datetimerange.el-input,
+.el-date-editor--datetimerange.el-input__inner {
+
+  height:40px;
+}
