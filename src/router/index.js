@@ -8,10 +8,7 @@ import Index from 'pages/index'
 
 Vue.use(Router)
 
-const routerConfig = [{
-  path: '',
-  redirect: '/service'
-  },
+const routerConfig = [
   {
     path: '/',
     name: 'Index',
@@ -21,7 +18,6 @@ const routerConfig = [{
 
 
 const routers = new Router({
-  mode: 'history',
   routes: routerConfig,
 })
 

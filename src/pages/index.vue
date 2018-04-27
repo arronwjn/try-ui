@@ -1,26 +1,49 @@
 <template>
     <div class="index">
-        <router-view></router-view>
+        <div class="load-wraper">
+            <load :top-method="loadTop" @top-status-change="handleTopChange" ref="loadmore">
+                <ul>
+                  <li v-for="(item,index) in 100" :key="index">{{ item }}</li>
+                </ul>
+                <!-- <div slot="top" class="mint-loadmore-top">
+                  <span v-show="topStatus !== 'loading'" :class="{ 'rotate': topStatus === 'drop' }">↓</span>
+                  <span v-show="topStatus === 'loading'">Loading...</span>
+                </div> -->
+            </load>
+        </div>
     </div>
 </template>
 
 <script>
-
+import load from "components/loadmore";
 export default {
   name: "index",
+  components: {
+    load
+  },
   data() {
     return {
+      topStatus: '',
     };
   },
-  created(){
-  },
+  created() {},
+  methods: {
+    loadTop() {
+      this.$refs.loadmore.onTopLoaded();
+    },
+    handleTopChange(status) {
+      this.topStatus = status;
+      console.log(status);
+    },
+  }
 };
 </script>
 
 <style scoped>
 .index {
-  min-width: 1366px;
-  height:100%;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
 }
 .v-header {
   position: fixed;
@@ -42,5 +65,8 @@ export default {
   flex: 1;
   padding: 20px;
   overflow: auto;
+}
+.load-wraper{
+  /* height:480px; */
 }
 </style>
