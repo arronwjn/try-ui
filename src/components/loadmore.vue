@@ -3,8 +3,8 @@
         <div class="try-loadmore-wrapper" :class="{'is-dropped':topDropped || bottomDropped}" :style="{ 'transform': transform }">
             <slot name="top">
                 <div class="try-loadmore-top" v-if="topMethod">
-                    <div v-if="topStatus === 'loading'" class="try-loadmore-spinner">加载中...</div>
-                    <div class="try-loadmore-text">{{topText}}</div>
+                    <img src="../assets/loading.gif" width="30" height="30" v-if="topStatus === 'loading'" class="try-loadmore-spinner" />
+                    <div class="try-loadmore-text"><span class="route" :class="{'is-route':topStatus === 'drop'}" v-if="topStatus != 'loading'">↓</span><span  v-html="topStatus === 'drop'?'释放立即刷新':topText">{{topText}}</span></div>
                 </div>
             </slot>
             <slot></slot>
@@ -385,6 +385,14 @@ export default {
 }
 .try-loadmore-text {
   vertical-align: middle;
+}
+.route{
+  display: inline-block;
+  transition: 0.4s;
+}
+.is-route{
+  /* color:red; */
+  transform: rotate(180deg);
 }
 </style>
 

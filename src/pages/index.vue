@@ -1,7 +1,8 @@
 <template>
-    <div class="index">
+    <div class="index" >
         <div class="load-wraper">
-            <load :top-method="loadTop" @top-status-change="handleTopChange" ref="loadmore">
+            <div  :style="{'transform': transform }"></div>
+            <load :top-method="loadTop" @top-status-change="handleTopChange" @translate-change="handletranslate" ref="loadmore">
                 <ul>
                   <li v-for="(item,index) in 100" :key="index">{{ item }}</li>
                 </ul>
@@ -16,6 +17,7 @@
 
 <script>
 import load from "components/loadmore";
+import {ApiDataModule} from 'config/axios'
 export default {
   name: "index",
   components: {
@@ -24,17 +26,32 @@ export default {
   data() {
     return {
       topStatus: '',
+      scale:100,
     };
+  },
+  computed: {
+    transform() {
+      let scale = this.scale/50;
+      // return "scale(1)";
+      return "scale3d("+scale + ","+scale+",1)";
+    }
   },
   created() {},
   methods: {
     loadTop() {
-      this.$refs.loadmore.onTopLoaded();
+      ApiDataModule('CITYLIST').then(res=>{
+        console.log(res)
+        this.$refs.loadmore.onTopLoaded();
+      })
     },
     handleTopChange(status) {
       this.topStatus = status;
       console.log(status);
     },
+    handletranslate(index){
+      this.scale = index;
+      console.log(index,'index')
+    }
   }
 };
 </script>
@@ -68,5 +85,9 @@ export default {
 }
 .load-wraper{
   /* height:480px; */
+}
+.bgc{
+  height:20px;
+  background-color: red;
 }
 </style>
